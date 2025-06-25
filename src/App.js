@@ -8,6 +8,7 @@ import Footer from './commponet/header-footer/Footer';
 import CreateBlogs from './commponet/body-commponet/CreateBlogs';
 import About from './commponet/body-commponet/About';
 import Contact from './commponet/body-commponet/Contact';
+import BlogsDeatails from './commponet/body-commponet/BlogsDeatails';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/blogs" element={<CreateBlogs />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/blogs/:id" element={<BlogsDeatails />} />
         </Routes>
         <Footer />
       </BrowserRouter>

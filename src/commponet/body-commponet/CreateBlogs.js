@@ -26,7 +26,7 @@ const CreateBlogs = () => {
     }
 
     const newPost = {
-      id: new Date(),
+      id: Date.now(), // unique id based on timestamp
       title: form.title.trim(),
       excerpt: form.excerpt.trim(),
       author: form.author.trim(),

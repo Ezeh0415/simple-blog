@@ -41,7 +41,7 @@ const HomeBlog = () => {
                         <div className="text-sm text-gray-500 mb-4">
                         By {post.author} • {post.date}
                         </div>
-                        <Link href="#" className="inline-block text-blue-600 font-medium hover:underline">
+                        <Link to={`/blogs/${post.id}`} className="inline-block text-blue-600 font-medium hover:underline">
                         Read More →
                         </Link>
                     </div>
