@@ -14,8 +14,8 @@ export const posts = [
     excerpt: 'A side-by-side comparison of Tailwind and Bootstrap with real-world use cases.',
     author: 'John Smith',
     date: 'June 18, 2025',
-    category: 'Web Dev',
-    categoryColor: 'green',
+    category: 'Tech',
+    categoryColor: 'blue',
   },
   {
     id: 3,
@@ -23,8 +23,8 @@ export const posts = [
     excerpt: 'Supercharge your development workflow with these essential VS Code extensions.',
     author: 'Alex Lee',
     date: 'June 15, 2025',
-    category: 'Tools',
-    categoryColor: 'purple',
+    category: 'Tech',
+    categoryColor: 'blue',
   },
 ];
 
@@ -32,6 +32,6 @@ export const categories = [
   { name: 'Tech', color: 'blue' },
   { name: 'Lifestyle', color: 'pink' },
   { name: 'Travel', color: 'green' },
-  { name: 'Tutorials', color: 'purple' },
+  // { name: 'Tutorials', color: 'purple' },
   { name: 'Reviews', color: 'yellow' },
 ];
