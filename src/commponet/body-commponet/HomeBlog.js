@@ -2,10 +2,19 @@ import { Link } from "react-router-dom"
 import { usePosts } from "../contex-file/PostContext"
 // import { useCategories } from "../contex-file/PostContext"
 import { categories } from "../UserBlog";
+import { useEffect, useState } from "react";
 
 const HomeBlog = () => {
     const {posts, setPosts} = usePosts();
-    // const {categories} = useCategories();
+    const [emptyPost, setEmptyPost] = useState(false);
+    
+
+   useEffect(() => {
+          if (posts.length === 0) {
+            setEmptyPost(true);
+    }
+   }, [posts]);
+    
 
     const handleDelete = (id) => {
         const newPosts = posts.filter((post) => post.id !== id);
@@ -41,7 +50,49 @@ const HomeBlog = () => {
         <section className="bg-gray-100 py-16 px-6">
             <div className="max-w-7xl mx-auto">
                 <h2 className="text-3xl font-bold text-gray-800 mb-10 text-center">Featured Posts</h2>
-
+                {emptyPost && (
+                    <div className="flex flex-col items-center justify-center">
+                       <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="430"
+                            height="430"
+                            fill="none"
+                            viewBox="0 0 430 430"
+                            className="size-40"
+                        >
+                            <path
+                            fill="#4bb3fd"
+                            d="m334.47 82.81-2 38.89-1.15 22.8-12.1 237.13a10 10 0 0 1-3.104 6.743 10 10 0 0 1-6.896 2.747H120.76a10 10 0 0 1-10-9.49L98.68 144.5l-1.17-22.8-2-38.89a2 2 0 0 1 2-2h234.96a2 2 0 0 1 2 2"
+                            />
+                            <path
+                            stroke="#ebe6ef"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="10"
+                            d="M156.46 172.689v155.91m58.67-155.91v155.91m58.41-155.91v155.91"
+                            />
+                            <path
+                            stroke="#4bb3fd"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="10"
+                            d="M259.16 79.7c0-24.26-22.56-41.85-43.75-41.85a45 45 0 0 0-44.57 38.74v5.84h88.32z"
+                            />
+                            <path
+                            fill="#4bb3fd"
+                            d="M342.71 75.8H87.3c-5.523 0-10 4.477-10 10v25.9c0 5.523 4.477 10 10 10h255.41c5.523 0 10-4.477 10-10V85.8c0-5.523-4.477-10-10-10"
+                            />
+                            <path
+                            fill="#4bb3fd"
+                            d="m332.49 121.699-1.17 22.83H98.68l-1.17-22.83z"
+                            opacity=".6"
+                            style={{ mixBlendMode: 'multiply' }}
+                            />
+                        </svg>
+                        <h2 className="text-2xl capitalize text-center font-bold">no available blogs yet</h2>
+                        <Link to="/write-blogs" className="mt-4 text-center capitalize border-2 px-4 py-1 rounded-xl text-white bg-blue-600" > create blogs</Link>
+                    </div>
+                )}
                 <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                 {posts.map((post) => (
                     <div key={post.id} className="bg-white rounded-lg shadow-md overflow-hidden">
